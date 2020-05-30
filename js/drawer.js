@@ -6,7 +6,7 @@ var zoom       = 2;
 var mousepos   = {
     x: 0,
     y: 0
-}
+};
 //var div_iter   = createP('a');
 //var div_zoom   = createP('b');
 //var div_center = createElement('c'); 
