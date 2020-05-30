@@ -45,11 +45,13 @@ window.addEventListener('keydown', (event) => {
     if (event.key == ' ') {
         iter = floor(iter * 2) ;
         console.log('iter', iter);
+        document.getElementById("iter").innerHTML = "Number of iterations: ".concat(iter);
         //document.getElementById('iter').innerHTML = toString(iter);
     }
     if (event.key == 'b') {
         iter = floor(iter * 0.5) ;
         console.log('iter', iter);
+        document.getElementById("iter").innerHTML = "Number of iterations: ".concat(iter);
         //document.getElementById('iter').innerHTML = toString(iter);
     }
     if (event.key == 'q') {
