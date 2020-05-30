@@ -77,7 +77,7 @@ function setup() {
                 x: map(event.clientX - rect.left, 0, width, x_center - zoom, x_center + zoom),
                 y: map(event.clientY - rect.top, 0, height, y_center - zoom, y_center + zoom)
             }
-            document.getElementById("c").innerHTML = "Constant for the Julia set: ".concat(mousepos.x, ' + ', mousepos.y, 'i');
+            document.getElementById("c").innerHTML = "Constant for the Julia set: ".concat('Real part: ', mousepos.x,', Imaginary part: ', mousepos.y);
             
         }
     })
