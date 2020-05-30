@@ -3,10 +3,6 @@ var y_center   = 0;
 var h          = 0.1;
 var iter       = 20;
 var zoom       = 2;
-var mousepos   = {
-    x: 0,
-    y: 0
-};
 //var div_iter   = createP('a');
 //var div_zoom   = createP('b');
 //var div_center = createElement('c'); 
@@ -15,7 +11,6 @@ var mousepos   = {
 //div_iter.html(iter);
 //div_zoom.html(zoom);
 //div_center.html(x_center, y_center);
-
 
 window.addEventListener('keydown', (event) => {
     //console.log(event.key);
@@ -78,8 +73,8 @@ function setup() {
                 x: map(event.clientX, 0, width, x_center - zoom, x_center + zoom),
                 y: map(event.clientY, 0, height, y_center - zoom, y_center + zoom)
             }
+            console.log(mousepos.x, mousepos.y);
         }
-        console.log(mousepos.x);
     })
     pixelDensity(1);
     
@@ -100,7 +95,6 @@ loadPixels();
 
             var ca = mousepos.x * mousepos.x - mousepos.y * mousepos.y;
             var cb = 2 * mousepos.x * mousepos.y;
-
 
             var n = 0;
 
