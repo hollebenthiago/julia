@@ -3,6 +3,10 @@ var y_center   = 0;
 var h          = 0.1;
 var iter       = 20;
 var zoom       = 2;
+var mousepos   = {
+    x: 0,
+    y: 0
+}
 //var div_iter   = createP('a');
 //var div_zoom   = createP('b');
 //var div_center = createElement('c'); 
