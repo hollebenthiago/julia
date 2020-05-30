@@ -70,12 +70,12 @@ function setup() {
     var canvas = createCanvas(360, 360);
     canvas.parent('canvasHere')
     canvas.id = 'canvas-id';
-    console.log(canvas.id);
+    var rect = document.getElementById('defaultCanvas0').getBoundingClientRect();
     document.getElementById('defaultCanvas0').addEventListener('mousemove', (event) =>{
         if (event.ctrlKey == true) {
             mousepos = {
-                x: map(event.clientX, 0, width, x_center - zoom, x_center + zoom),
-                y: map(event.clientY, 0, height, y_center - zoom, y_center + zoom)
+                x: map(event.clientX - rect.left, 0, width, x_center - zoom, x_center + zoom),
+                y: map(event.clientY - rect.top, 0, height, y_center - zoom, y_center + zoom)
             }
             console.log(mousepos.x, mousepos.y);
         }
