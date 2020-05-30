@@ -20,27 +20,24 @@ window.addEventListener('keydown', (event) => {
     //console.log(event.key);
     if (event.key == 'ArrowRight') {
         x_center = x_center + h*zoom;
-        console.log('center', x_center, y_center);
+        document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
         //div_center.html(x_center, y_center);
         //document.getElementById('center').innerText = toString(x_center, y_center);
     }
     if (event.key == 'ArrowLeft') {
         x_center = x_center - h*zoom;
-        console.log('center', x_center, y_center);
         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
         //div_center.html(x_center, y_center);
         //document.getElementById('center').innerText = toString(x_center, y_center);
     }
     if (event.key == 'ArrowUp') {
         y_center = y_center - h*zoom;
-        console.log('center', x_center, y_center);
         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
         //div_center.html(x_center, y_center);
         //document.getElementById('center').innerHTML = toString(x_center, y_center);
     }
     if (event.key == 'ArrowDown') {
         y_center = y_center + h*zoom;
-        console.log('center', x_center, y_center);
         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
         //div_center.html(x_center, y_center);
         //document.getElementById('center').innerHTML = toString(x_center, y_center);
@@ -57,7 +54,6 @@ window.addEventListener('keydown', (event) => {
     }
     if (event.key == 'q') {
         zoom = zoom * 0.9 ;
-        console.log('zoom', zoom);
         document.getElementById("zoom").innerHTML = "Zoom: ".concat(zoom);
         //document.getElementById('zoom').innerHTML = toString(zoom);
     }
@@ -81,7 +77,6 @@ function setup() {
                 x: map(event.clientX - rect.left, 0, width, x_center - zoom, x_center + zoom),
                 y: map(event.clientY - rect.top, 0, height, y_center - zoom, y_center + zoom)
             }
-            console.log(mousepos.x, mousepos.y);
             document.getElementById("c").innerHTML = "Constant for the Julia set: ".concat(mousepos.x, ' + ', mousepos.y, 'i');
             
         }
