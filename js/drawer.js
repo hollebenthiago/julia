@@ -76,6 +76,16 @@ window.addEventListener('keydown', (event) => {
         document.getElementById("zoom").innerHTML = "Zoom: ".concat(zoom);
         //document.getElementById('zoom').innerHTML = toString(zoom);
     }
+    if (event.key == 'o') {
+        degree ++;
+        document.getElementById("degree").innerHTML = "".concat('z^', degree, ' + c');
+        //document.getElementById('zoom').innerHTML = toString(zoom);
+    }
+    if (event.key == 'p' && degree > 1) {
+        degree --;
+        document.getElementById("degree").innerHTML = "".concat('z^', degree, ' + c');
+        //document.getElementById('zoom').innerHTML = toString(zoom);
+    }
     
 })
 
