@@ -3,10 +3,24 @@ var y_center   = 0;
 var h          = 0.1;
 var iter       = 20;
 var zoom       = 2;
+var degree     = 2;
 var mousepos   = {
     x: 0,
     y: 0
 };
+
+function mult([a,b],[c,d]) {
+    return [a *c - b * d, a * d + b * c]
+}
+
+function m(n, a, b) {
+    prods = [a,b]
+    while (n > 1) {
+        prods = mult([a, b], prods)
+        n--
+    }
+    return prods
+}
 //var div_iter   = createP('a');
 //var div_zoom   = createP('b');
 //var div_center = createElement('c'); 
@@ -102,18 +116,31 @@ loadPixels();
             var cb = 2 * mousepos.x * mousepos.y;
 
             var n = 0;
-
-            while (n < iter) {
-            var aa = a * a - b * b;
-            var bb = 2 * a * b;
-            a = aa + ca;
-            b = bb + cb;
-            if (a * a + b * b > 8) {
-                break;
+            if (degree > 2) {
+                while (n < iter) {
+                    var aa = m(degree, a, b)[0]
+                    var bb = m(degree, a, b)[1]
+                    a = aa + ca;
+                    b = bb + cb;
+                    if (a * a + b * b > 8) {
+                        break;
+                    }
+                    n++;
+                }
             }
-            n++;
-            }
 
+            else {
+                while (n < iter) {
+                    var aa = a * a - b * b;
+                    var bb = 2 * a * b;
+                    a = aa + ca;
+                    b = bb + cb;
+                    if (a * a + b * b > 8) {
+                        break;
+                    }
+                    n++;
+                }
+            }
             var bright = map(n, 0, iter, 0, 1);
             bright = map(sqrt(bright), 0, 1, 0, 255);
 
