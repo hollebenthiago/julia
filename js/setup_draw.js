@@ -1,79 +1,79 @@
-var x_center   = -0.6;
-var y_center   = 0;
-var h          = 0.1;
-var iter       = 20;
-var zoom       = 2;
-var degree     = 2;
-var mousepos   = {
-    x: 0,
-    y: 0
-};
+// var x_center   = -0.6;
+// var y_center   = 0;
+// var h          = 0.1;
+// var iter       = 20;
+// var zoom       = 2;
+// var degree     = 2;
+// var mousepos   = {
+//     x: 0,
+//     y: 0
+// };
 
-function mult([a,b],[c,d]) {
-    return [a *c - b * d, a * d + b * c]
-}
+// function mult([a,b],[c,d]) {
+//     return [a *c - b * d, a * d + b * c]
+// }
 
-function m(n, a, b) {
-    prods = [a,b]
-    while (n > 1) {
-        prods = mult([a, b], prods)
-        n--
-    }
-    return prods
-}
+// function m(n, a, b) {
+//     prods = [a,b]
+//     while (n > 1) {
+//         prods = mult([a, b], prods)
+//         n--
+//     }
+//     return prods
+// }
 
-window.addEventListener('keydown', (event) => {
-    if (event.key == 'ArrowRight') {
-        x_center = x_center + h*zoom;
-        document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
-    }
+// window.addEventListener('keydown', (event) => {
+//     if (event.key == 'ArrowRight') {
+//         x_center = x_center + h*zoom;
+//         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
+//     }
 
-    if (event.key == 'ArrowLeft') {
-        x_center = x_center - h*zoom;
-        document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
-    }
+//     if (event.key == 'ArrowLeft') {
+//         x_center = x_center - h*zoom;
+//         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
+//     }
 
-    if (event.key == 'ArrowUp') {
-        y_center = y_center - h*zoom;
-        document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
-    }
+//     if (event.key == 'ArrowUp') {
+//         y_center = y_center - h*zoom;
+//         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
+//     }
 
-    if (event.key == 'ArrowDown') {
-        y_center = y_center + h*zoom;
-        document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
-    }
+//     if (event.key == 'ArrowDown') {
+//         y_center = y_center + h*zoom;
+//         document.getElementById("center").innerHTML = "Center coordinates: ".concat('(', x_center, ', ', y_center, ')');
+//     }
 
-    if (event.key == ' ') {
-        iter = floor(iter * 2) ;
-        document.getElementById("iter").innerHTML = "Number of iterations: ".concat(iter);
-    }
+//     if (event.key == ' ') {
+//         iter = floor(iter * 2) ;
+//         document.getElementById("iter").innerHTML = "Number of iterations: ".concat(iter);
+//     }
 
-    if (event.key == 'b') {
-        iter = floor(iter * 0.5) ;
-        document.getElementById("iter").innerHTML = "Number of iterations: ".concat(iter);
-    }
+//     if (event.key == 'b') {
+//         iter = floor(iter * 0.5) ;
+//         document.getElementById("iter").innerHTML = "Number of iterations: ".concat(iter);
+//     }
 
-    if (event.key == 'q') {
-        zoom = zoom * 0.9 ;
-        document.getElementById("zoom").innerHTML = "Zoom: ".concat(zoom);
-    }
+//     if (event.key == 'q') {
+//         zoom = zoom * 0.9 ;
+//         document.getElementById("zoom").innerHTML = "Zoom: ".concat(zoom);
+//     }
 
-    if (event.key == 'w') {
-        zoom = zoom * 10/9;
-        document.getElementById("zoom").innerHTML = "Zoom: ".concat(zoom);
-    }
+//     if (event.key == 'w') {
+//         zoom = zoom * 10/9;
+//         document.getElementById("zoom").innerHTML = "Zoom: ".concat(zoom);
+//     }
 
-    if (event.key == 'o') {
-        degree ++;
-        document.getElementById("degree").innerHTML = "".concat('z^', degree, ' + c');
-    }
+//     if (event.key == 'o') {
+//         degree ++;
+//         document.getElementById("degree").innerHTML = "".concat('z^', degree, ' + c');
+//     }
 
-    if (event.key == 'p' && degree > 1) {
-        degree --;
-        document.getElementById("degree").innerHTML = "".concat('z^', degree, ' + c');
-    }
+//     if (event.key == 'p' && degree > 1) {
+//         degree --;
+//         document.getElementById("degree").innerHTML = "".concat('z^', degree, ' + c');
+//     }
     
-})
+// })
 
 function setup() {
     var canvas = createCanvas(360, 360);
